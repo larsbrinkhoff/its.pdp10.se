@@ -1,0 +1,9 @@
+service http
+{
+	id		= http
+	socket_type	= stream
+	protocol	= tcp
+	user		= root
+	wait		= no
+	server		= /its/http.sh
+}

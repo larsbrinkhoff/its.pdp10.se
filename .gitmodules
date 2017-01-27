@@ -1,0 +1,3 @@
+[submodule "its/its"]
+	path = its/its
+	url = https://github.com/PDP-10/its
