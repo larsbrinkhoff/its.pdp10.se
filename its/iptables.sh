@@ -23,10 +23,6 @@ for i in $OUTGOING; do
     iptables -t nat -A POSTROUTING -o eth0 -p tcp --dport $i -j SNAT --to-source $GW
 done
 
-iptables -A FORWARD -p udp -m udp --dport $CHAOS -j ACCEPT
-iptables -t nat -A PREROUTING -i eth0 -p udp --dport $CHAOS -j DNAT --to-destination $IP
-iptables -t nat -A POSTROUTING -o eth0 -p udp --dport $CHAOS -j SNAT --to-source $GW
-
 iptables -A FORWARD -s $IP -p udp --dport 53 -j ACCEPT
 
 iptables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
